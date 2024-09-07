@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    This is index page...
+    <nav>
+        <my-link data-route="/home">Home</my-link>
+        <my-link data-route="/about">About</my-link>
+        <my-link data-route="/contact-us">Contact-us</my-link>
+    </nav>
+
+    <button data-type="navigate" data-route="/about">Navigate to About page</button>
+
+    <div id="root"></div>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>
