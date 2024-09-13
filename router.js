@@ -4,7 +4,7 @@ function setRoutes(routeObj){
 }
 
 
-function renderContent() {
+export function renderContent() {
   // Clearing previous content from root
   document.getElementById("root").innerHTML = "";
 
@@ -65,7 +65,15 @@ function addListeners(parentElement, parentRoute = "/") {
     link.setAttribute("data-route", updatedRoutePath);
 
     link.addEventListener("click", (e) => {
+      const loginState = checkLoginState()
+      console.log({loginState},loginState === true)
       e.preventDefault();
+      const routeType = link.getAttribute('data-route-type')
+      console.log({routeType})
+      if(routeType && routeType.toLowerCase()==='private' && !loginState){
+        document.getElementById('root').innerHTML = '<h3>Unauthorized !! Login to access this route </h3>'
+        return;
+      }
       const routePath = link.getAttribute("data-route");
 
       if (window.location.pathname === routePath) {
@@ -79,7 +87,7 @@ function addListeners(parentElement, parentRoute = "/") {
 
   // Add listeners to all buttons with data-type="navigate"
   parentElement
-    .querySelectorAll('button[data-type="navigate"]')
+    .querySelectorAll('button[data-btn-type="navigate"]')
     .forEach((link) => {
       let linkRoute = link.getAttribute("data-route");
 
@@ -105,6 +113,10 @@ function addListeners(parentElement, parentRoute = "/") {
     });
 }
 
+function checkLoginState(){
+  return localStorage.getItem('login') ? true : false
+}
+
 function findRouteBasedOnPath(availableRoutes, path) {
   return availableRoutes.find(
     (route) => route.path === path || route.path === `/${path}`
@@ -122,3 +134,65 @@ export function createRouter(routes) {
     renderContent();
   });
 }
+
+
+// listening for login/logout btn if available
+const authBtn = document.querySelector('button[data-btn-type="auth"]')
+console.log(authBtn)
+authBtn?.addEventListener('click',()=>{
+  console.log("clicked")
+  const loginState = localStorage.getItem('login')
+  if(loginState){
+    localStorage.removeItem('login')
+    authBtn.innerText = "Login"
+  }else{
+    localStorage.setItem('login','true')
+    authBtn.innerText = "Logout"
+  }
+  // renderContent()
+})
+
+
+
+
+
+
+export function navigate(route){
+  history.pushState(null,null,route)
+  renderContent()
+}
+
+
+
+function resetLoginState(){
+  localStorage.removeItem('login')
+}
+
+resetLoginState()
+
+
+
+
+
+
+
+
+
+
+// // event listener for login/logout
+// const authBtn = document.querySelector('button[data-type="navigate"')
+
+// const loginState = localStorage.getItem('login')
+// authBtn.innerText = `${loginState ? "Logout" : "Login"}`
+
+// authBtn.addEventListener('click',()=>{
+//   const loginState = localStorage.getItem('login')
+//   if(loginState){
+//     localStorage.removeItem('login')
+//     authBtn.innerText = "Login"
+//   }else{
+//     localStorage.setItem('login','true')
+//     authBtn.innerText = "Logout"
+//   }
+
+// })

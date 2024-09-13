@@ -3,7 +3,7 @@ export function Home() {
                     <nav>
                         <my-link data-route="products">Products</my-link>
                         <my-link data-route="about">About</my-link>
-                        <my-link data-route="contact-us">Contact-us</my-link>
+                        <my-link data-route="contact-us" data-route-type="private">Contact-us</my-link>
                     </nav>
-                    <div id="d1.0" class="outlet"></div>`;
+                    <div class="outlet"></div>`;
 }

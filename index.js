@@ -1,5 +1,5 @@
-import { Home, About, Products } from "./Components/index.js";
-import { createRouter } from "./router.js";
+import { Home, About, Products,Profile } from "./Components/index.js";
+import { createRouter, navigate } from "./router.js";
 
 const routes = [
   {
@@ -36,6 +36,10 @@ const routes = [
     ],
   },
   {
+    path:'/profile',
+    content:Profile()
+  },
+  {
     path: "/about",
     content: About(),
     children: [
@@ -55,7 +59,14 @@ const routes = [
   },
 ];
 
+createRouter(routes);
 
-createRouter(routes)
+// document.getElementById('navigateToAbout').addEventListener('click',()=>{
+//   navigate('/about')
+//   renderContent()
+// })
 
-
+// document.getElementById('navigateToContactUs').addEventListener('click',()=>{
+//   navigate('/about')
+//   renderContent()
+// })
