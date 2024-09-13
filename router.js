@@ -174,25 +174,3 @@ resetLoginState()
 
 
 
-
-
-
-
-
-// // event listener for login/logout
-// const authBtn = document.querySelector('button[data-type="navigate"')
-
-// const loginState = localStorage.getItem('login')
-// authBtn.innerText = `${loginState ? "Logout" : "Login"}`
-
-// authBtn.addEventListener('click',()=>{
-//   const loginState = localStorage.getItem('login')
-//   if(loginState){
-//     localStorage.removeItem('login')
-//     authBtn.innerText = "Login"
-//   }else{
-//     localStorage.setItem('login','true')
-//     authBtn.innerText = "Logout"
-//   }
-
-// })
