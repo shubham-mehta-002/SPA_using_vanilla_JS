@@ -138,9 +138,9 @@ export function createRouter(routes) {
 
 // listening for login/logout btn if available
 const authBtn = document.querySelector('button[data-btn-type="auth"]')
-console.log(authBtn)
+
 authBtn?.addEventListener('click',()=>{
-  console.log("clicked")
+
   const loginState = localStorage.getItem('login')
   if(loginState){
     localStorage.removeItem('login')
@@ -153,16 +153,10 @@ authBtn?.addEventListener('click',()=>{
 })
 
 
-
-
-
-
 export function navigate(route){
   history.pushState(null,null,route)
   renderContent()
 }
-
-
 
 function resetLoginState(){
   localStorage.removeItem('login')
