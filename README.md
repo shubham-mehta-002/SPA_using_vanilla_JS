@@ -1,5 +1,7 @@
 ## SPA-using-JS
 
+[Live Here](https://spa-using-js.netlify.app/)
+
 I tried to implement Routing in a single page application using Vanilla JavaScript.
 
 - Navigate throughout the SPA, WITHOUT page re-load
