@@ -32,7 +32,7 @@ export function renderContent() {
         : document.getElementById("root");
 
     if (!view) {
-      outletDivToRender.innerHTML = "Page Not Found";
+      outletDivToRender.innerHTML = `<h2>Page Not Found</h2>`;
 
       return;
     } else {
@@ -71,8 +71,8 @@ function addListeners(parentElement, parentRoute = "/") {
       const routeType = link.getAttribute('data-route-type')
       console.log({routeType})
       if(routeType && routeType.toLowerCase()==='private' && !loginState){
-        document.getElementById('root').innerHTML = '<h3>Unauthorized !! Login to access this route </h3>'
-        return;
+        document.getElementById('root').innerHTML = '<h2>Unauthorized !! Login to access this route </h2>'
+        // return;
       }
       const routePath = link.getAttribute("data-route");
 
@@ -134,24 +134,6 @@ export function createRouter(routes) {
     renderContent();
   });
 }
-
-
-// listening for login/logout btn if available
-const authBtn = document.querySelector('button[data-btn-type="auth"]')
-
-authBtn?.addEventListener('click',()=>{
-
-  const loginState = localStorage.getItem('login')
-  if(loginState){
-    localStorage.removeItem('login')
-    authBtn.innerText = "Login"
-  }else{
-    localStorage.setItem('login','true')
-    authBtn.innerText = "Logout"
-  }
-  // renderContent()
-})
-
 
 export function navigate(route){
   history.pushState(null,null,route)
