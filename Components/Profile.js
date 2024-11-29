@@ -1,3 +1,3 @@
 export function Profile(){
-    return `<h3>This is User 1</h3>`
+    return `<h2>Authorized !! This is User 1</h2>`
 }
