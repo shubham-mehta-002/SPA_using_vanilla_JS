@@ -91,6 +91,9 @@ my-link:hover {
     gap: 5px;
     gap: 5px;
   }
+  nav{
+    justify-content: start;
+  }
   
 }
 @media (max-width: 768px) {
