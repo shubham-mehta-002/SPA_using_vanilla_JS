@@ -1,4 +1,4 @@
-import { Home, About, Products,Profile } from "./Components/index.js";
+import { Home, About, Products,Profile , Services ,Login,Logout } from "./Components/index.js";
 import { createRouter, navigate } from "./router.js";
 
 
@@ -13,27 +13,31 @@ const routes = [
         children: [
           {
             path: "product1",
-            content: `<h6>This is product 1</h6>
-            <my-link data-route="buy-me">buy-me</my-link>
-                      <my-link data-route="add-to-cart">add to cart</my-link>
+            content: `<h2>This is product 1</h2>
+                        <my-link data-route="buy-me">buy-me</my-link>
+                        <my-link data-route="add-to-cart">add to cart</my-link>
                       <div id="d1.1.1" class="outlet"></div>`,
             children: [
               {
                 path: "buy-me",
-                content: "<h5>BUY ME</h5>",
+                content: "<h2>BUY ME</h2>",
               },
               {
                 path: "add-to-cart",
-                content: "<h5>ADD ME TO CART</h5>",
+                content: "<h2>ADD ME TO CART</h2>",
               },
             ],
           },
           {
             path: "product2",
-            content: `<h6>This is product 2</h6>`,
+            content: `<h2>This is product 2</h2>`,
           },
         ],
       },
+      {
+        path:"services",
+        content:Services()
+      }
     ],
   },
   {
@@ -46,20 +50,44 @@ const routes = [
     children: [
       {
         path: "about1",
-        content: "This is about 1",
+        content: "<h2>This is about 1</h2>",
       },
       {
         path: "about2",
-        content: "This is about 2",
+        content: "<h2>This is about 2</h2>",
       },
     ],
   },
   {
-    path: "/products",
-    content: "<h1>This is parent product page....</h1>",
+    path: "/login",
+    content: Login(),
   },
+  {
+    path: "/logout",
+    content: Logout(),
+  }
 ];
 
 createRouter(routes);
 
 
+
+
+const authBtn = document.querySelector('button[data-btn-type="auth"]')
+
+authBtn?.addEventListener('click',()=>{
+
+  const loginState = localStorage.getItem('login')
+  if(loginState){
+    navigate("/logout")
+    localStorage.removeItem('login')
+    authBtn.innerText = "Login"
+  }else{
+    navigate("/login")
+    localStorage.setItem('login','true')
+    authBtn.innerText = "Logout"
+  }
+})
+
+
+navigate('/home')
