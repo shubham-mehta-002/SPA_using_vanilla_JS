@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SPA using JS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    This is index page...
-    <nav>
-        <my-link data-route="/home">Home</my-link>
-        <my-link data-route="/about">About</my-link>
-        <my-link data-route="/contact-us">Contact-us</my-link>
-        <my-link data-route="/profile" data-route-type="private" >Profile</my-link>
-        <button data-btn-type="auth">Login</button>
-    </nav>
-    <button data-btn-type="navigate" data-route="/about">Navigate to About page</button>
-  
+    <navbar>
+        <div id="logo">SPA</div>
+        <nav id="navbar">
+            <my-link data-route="/home">Home</my-link>
+            <my-link data-route="/about">About</my-link>
+            <my-link data-route="/profile" data-route-type="private" >Profile</my-link>
+            <button data-btn-type="auth">Login</button>
+        </nav>
+    </navbar>
+
+    <!-- <h4>This is root page</h4> -->
     <div id="root"></div>
 
     <script type="module" src="index.js"></script>
