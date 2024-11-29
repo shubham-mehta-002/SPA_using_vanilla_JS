@@ -1,9 +1,106 @@
-@import url('./Components//Home.css');
-my-link{
-    cursor: pointer;
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background-color: rgb(56, 52, 52);
-    color:white;
+my-link {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #1e1e1e;
+}
+
+navbar #logo {
+  width: 30%;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-weight: 600;
+  margin-left: 30px;
+}
+
+nav {
+  width: 70%;
+  padding: 10px 20px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: end;
+}
+
+my-link {
+  color: #e0e0e0;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+my-link:hover {
+  color: #b0b0b0;
+}
+
+button {
+  background-color: #6200ea;
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+button[data-btn-type="auth"] {
+  background-color: #6200ea;
+}
+
+button[data-btn-type="auth"]:hover {
+  background-color: #3700b3;
+}
+
+#root {
+  margin-bottom: 20px 0;
+}
+
+my-link:focus,
+my-link:hover {
+  color: #bb86fc;
+  outline: none;
+}
+
+@media (max-width: 450px) {
+  navbar #logo {
+    display: none;
+  }
+  #navbar {
+    width: 100%;
+    gap: 5px;
+    gap: 5px;
+  }
+  
+}
+@media (max-width: 768px) {
+  my-link {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
 }
